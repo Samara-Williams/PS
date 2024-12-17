@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Bar</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            background-color: #4c0051;
+            ;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav h1 {
+            color: white;
+        }
+        .search-container {
+            display: flex;
+            justify-content: flex-end;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: none;
+            width: 200px;
+        }
+        button {
+            background-color: #f4c7fa;
+            color: rgb(28, 1, 1);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #e7ffc4;
+        }
+        .result {
+            margin: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        .list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .list li {
+            margin-bottom: 5px;
+            color: #4c0051;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <h1>Explorer's Hub</h1>
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search...">
+        <button onclick="performSearch()">Search</button>
+    </div>
+</nav>
+
+<div class="result" id="result"></div>
+
+<script>
+    const searchResults = {
+        "ice cream": ["Vanilla", "Chocolate", "Strawberry", "Mint Chocolate Chip", "Cookies & Cream", "Rocky Road", "Butter Pecan", "Mango Sorbet"],
+        "plants": ["Succulents", "Ferns", "Cacti", "Bamboo", "Orchids", "Aloe Vera", "Snake Plant", "Monstera"],
+        "cars": ["Tesla Model 3", "Ford Mustang", "BMW 3 Series", "Audi A4", "Honda Civic", "Toyota Camry", "Mercedes-Benz C-Class", "Jeep Wrangler"],
+        "countries": ["USA", "India", "Australia", "Canada", "Japan", "Germany", "Brazil", "South Africa"],
+        "books": ["To Kill a Mockingbird", "1984", "The Great Gatsby", "Harry Potter", "The Lord of the Rings", "Pride and Prejudice", "Moby Dick", "War and Peace"],
+        "movies": ["Inception", "The Godfather", "Titanic", "The Dark Knight", "Forrest Gump", "The Matrix", "The Shawshank Redemption", "Pulp Fiction"],
+        "sports": ["Soccer", "Basketball", "Tennis", "Cricket", "Baseball", "Rugby", "Swimming", "Badminton"],
+        "languages": ["English", "Spanish", "Mandarin", "Hindi", "French", "German", "Arabic", "Russian"]
+    };
+
+    function performSearch() {
+        const input = document.getElementById('search-input').value.toLowerCase();
+        const resultDiv = document.getElementById('result');
+        
+        if (searchResults[input]) {
+            let output = "<ul class='list'>";
+            searchResults[input].forEach(item => {
+                output += `<li>${item}</li>`;
+            });
+            output += "</ul>";
+            resultDiv.innerHTML = `<strong>Results for '${input}':</strong> ${output}`;
+        } else {
+            resultDiv.innerHTML = `<strong>No results found for '${input}'</strong>`;
+        }
+    }
+
+    document.getElementById('search-input').addEventListener('keydown', function(event) {
+    if (event.key === "Enter") {
+        performSearch();
+    }
+});
+
+</script>
+
+</body>
+</html>

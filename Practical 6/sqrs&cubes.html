@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squares and Cubes</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+
+        table {
+            width: 60%;
+            margin: 50px auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 2px solid #333;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #444;
+            color: #fff;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+
+    <table id="resultTable">
+        <thead>
+            <tr>
+                <th>Number</th>
+                <th>Square</th>
+                <th>Cube</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Rows will be dynamically generated here -->
+        </tbody>
+    </table>
+
+    <script>
+        const tableBody = document.querySelector('#resultTable tbody');
+
+        for (let i = 0; i <= 10; i++) {
+            const square = i * i;
+            const cube = i * i * i;
+
+            const row = document.createElement('tr');
+
+            const numberCell = document.createElement('td');
+            numberCell.textContent = i;
+            row.appendChild(numberCell);
+
+            const squareCell = document.createElement('td');
+            squareCell.textContent = square;
+            row.appendChild(squareCell);
+
+            const cubeCell = document.createElement('td');
+            cubeCell.textContent = cube;
+            row.appendChild(cubeCell);
+
+            tableBody.appendChild(row);
+        }
+    </script>
+
+</body>
+</html>

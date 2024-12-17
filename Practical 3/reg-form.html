@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 100px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        h2 {
+            text-align: center;
+            font-family: monospace;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            -ms-flex-item-align: center;
+        }
+        label {
+            margin-top: 10px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select {
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            input[type="submit"] {
+                padding: 10px;
+            }
+        }
+    </style>
+    <title>Registeration Form</title>
+</head>
+<body>
+    <div class="container">
+        <h2 style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;">SWC Registration Form</h2>
+        <form>
+
+        <label for ="Full Name"> Full Name: </label>
+        <input type = "text" id-"Full Name" name="username" required><br>
+
+        <label for="email"> Email: </label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for ="Phone Number"> Phone Number: </label>
+        <input type = "number" id-"Phone Number" name="Phone" required><br>
+
+        <label for="dropdown">Branch: </label>
+            <select id="dropdown" name=" Branch: " required>
+                <option value="--SELECT--">--SELECT--</option>
+                <option value="CSE">CSE</option>
+                <option value="ETC">ETC</option>
+                <option value="EE">EE</option>
+                <option value="ME">ME</option>
+                <option value="CE">CE</option>
+            </select><br>
+
+        <label for="dropdown">Year: </label>
+            <select id="dropdown" name=" Year: " required>
+                <option value="--SELECT--">--SELECT--</option>
+                <option value="2nd">2nd</option>
+                <option value="3rd">3rd</option>
+                <option value="4th">4th</option>
+            </select><br>
+
+        <label for="dropdown">Applying for: </label>
+            <select id="dropdown" name=" Applying for: " required>
+                <option value="--SELECT--">--SELECT--</option>
+                <option value="President">President</option>
+                <option value="General Secretary">General Secretary</option>
+                <option value="Cultural Secretary">Cultural Secretary</option>
+                <option value="Technical Secretary">Technical Secretary</option>
+                <option value="Sports Secratary">Sports Secratary</option>
+                <option value="University Representative">University Representative</option>
+                <option value="Lady Representative(Gymkhana)">Lady Representative(Gymkhana)</option>
+                <option value="Lady Representative(Hostel)">Lady Representative(Hostel)</option>
+                <option value="Magazine Coordinator">Magazine Coordinator</option>
+                <option value="NSS Coordinator">NSS Coordinator</option>
+                <option value="NCC Coordinator">NCC Coordinator</option>
+                <option value="Technical Head">Technical Head</option>
+            </select><br>
+        
+        <label for="dropdown">Do you have any backlog in any semester?: </label>
+            <select id="dropdown" name="backlog: " required>
+                <option value="--SELECT--">--SELECT--</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br>
+        
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>

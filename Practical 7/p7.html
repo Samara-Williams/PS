@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Functions Demo - Classy Style</title>
+    <style>
+        body {
+            background-color: #f4f4f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 40px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            width: 40%;
+        }
+
+        h2 {
+            color: #4a4a4a;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #666;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 80%;
+            padding: 12px;
+            margin: 12px 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus {
+            border-color: #15f930;
+            outline: none;
+            box-shadow: 0 0 8px rgba(21, 158, 249, 0.2);
+        }
+
+        button {
+            padding: 10px 18px;
+            background-color: #21df37;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #008710;
+        }
+
+        p {
+            font-size: 18px;
+            color: #444;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 80%;
+            }
+
+            input[type="text"],
+            input[type="number"] {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Find Left-most Vowel</h2>
+        <label for="stringInput">Enter a string:</label><br>
+        <input type="text" id="stringInput" placeholder="Type your string here"><br>
+        <button onclick="findLeftMostVowel()">Find Left-most Vowel</button>
+        <p id="vowelResult"></p>
+
+        <h2>Reverse Number Digits</h2>
+        <label for="numberInput">Enter a number:</label><br>
+        <input type="number" id="numberInput" placeholder="Enter your number here"><br>
+        <button onclick="reverseNumber()">Reverse Digits</button>
+        <p id="reverseResult"></p>
+    </div>
+
+    <script>
+        // Function to find the position of the left-most vowel in a string
+        function findLeftMostVowel() {
+            const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+            const inputString = document.getElementById('stringInput').value;
+            let position = -1;
+
+            for (let i = 0; i < inputString.length; i++) {
+                if (vowels.includes(inputString[i])) {
+                    position = i + 1; // Position is 1-based
+                    break;
+                }
+            }
+
+            const resultElement = document.getElementById('vowelResult');
+            if (position !== -1) {
+                resultElement.innerHTML = `The left-most vowel is at position: ${position}`;
+            } else {
+                resultElement.innerHTML = 'No vowels found in the string.';
+            }
+        }
+
+        // Function to reverse the digits of a number
+        function reverseNumber() {
+            let inputNumber = document.getElementById('numberInput').value;
+            const reversedNumber = inputNumber.split('').reverse().join('');
+            document.getElementById('reverseResult').innerHTML = `Reversed number: ${reversedNumber}`;
+        }
+    </script>
+
+</body>
+</html>
